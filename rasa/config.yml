@@ -1,0 +1,35 @@
+language: "de"
+pipeline:
+  - name: SpacyNLP
+  - name: SpacyTokenizer
+  - name: RegexFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    max_featurizes: 10000
+    max_ngram: 15
+    min_ngram: 2
+  - name: DucklingHTTPExtractor
+    dimensions:
+      - time
+      - duration
+    locale: de_DE
+    timezone: Europe/Berlin
+    url: http://duckling:8000
+  - name: DIETClassifier
+    epochs: 200
+    intent_tokenization_flag: true
+    intent_split_symbol: "+"
+  - name: EntitySynonymMapper
+policies:
+  - name: TEDPolicy
+    batch_size: 50
+    epochs: 200
+    max_training_samples: 300
+    max_history: 5
+  - name: FallbackPolicy
+    fallback_action_name: action_default_fallback
+    nlu_threshold: 0.2
+  - name: MemoizationPolicy
+    max_history: 5
+  - name: FormPolicy
+  - name: MappingPolicy
