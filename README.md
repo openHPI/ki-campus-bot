@@ -18,7 +18,7 @@ Recent years have shown a rise in chatbots on the internet. Reason for this are 
     rasa train --data data/ -c config.yml -d domain.yml --out models/
 ```
 
-### Use Chatbot 
+### Usage
 
 1. Start docker in the outer project structure
 
