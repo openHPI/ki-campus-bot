@@ -11,6 +11,17 @@
 * conversation_thank_you
   - utter_conversation_youre_welcome
 
-## about_moocs_question_answer
+## about mooc question
 * about_moocs_question
     - utter_about_moocs_question
+
+## New Story
+
+* about_ki
+    - utter_about_ki
+* conversation_thank_you
+    - utter_conversation_youre_welcome
+
+## about KI
+* about_ki
+    - utter_about_ki
