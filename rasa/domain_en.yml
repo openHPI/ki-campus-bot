@@ -18,23 +18,14 @@ intents:
   - transcription_question
   - timelimit_question
   - change_info
-
-actions:
-  - utter_payment_question
-  - utter_account_creation_question
-  - utter_confirmation_email_problem
-  - utter_password_reset_question
-  - utter_whats_kicampus_question
-  - utter_kicampus_access_question
-  - utter_course_type_question
-  - utter_course_structure_question
-  - utter_offered_languages_question
-  - utter_where_certificate_question
-  - utter_outdated_browser_question
-  - utter_birthday_question
-  - utter_transcription_question
-  - utter_timelimit_question
-  - utter_change_info_question
+  - ask_whatspossible
+  - affirm
+  - react_positive
+  - bye
+  - deny
+  - explain
+  - greet
+  - thank
 
 entities:
   - profile-info
@@ -100,3 +91,24 @@ responses:
   
   utter_change_info_question:
     - text: You can change this information in your KI Campus profile. Please log on to KI Campus and click on your profile picture and select settings. There you can change your email address, name or profile picture.
+
+  utter_conversation_greet:
+    - text: Hello.
+    - text: Hi!
+    - text: Hey!
+
+  utter_conversation_goodbye:
+    - text: Bye.
+    - text: Good bye!
+
+  utter_conversation_offer_help:
+    - text: How can I help you?
+    - text: What can I do for you?
+  
+  utter_noworries:
+    - text: No worries!
+    - text: You're welcome!
+    - text: I'm happy to help.
+
+  utter_anything_else:
+    - text: Is there anything else I can help you with?

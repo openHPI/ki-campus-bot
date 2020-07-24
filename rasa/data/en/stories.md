@@ -1,3 +1,22 @@
+## thanks
+* thank
+    - utter_noworries
+    - utter_anything_else
+
+## greet
+* greet
+  - utter_conversation_greet
+  - utter_conversation_offer_help
+
+## welcome
+* greet
+  - utter_conversation_greet
+  - utter_conversation_offer_help
+
+## goodbye
+* bye
+  - utter_conversation_goodbye
+
 ## payment question answer
 * payment_question
     - utter_payment_question

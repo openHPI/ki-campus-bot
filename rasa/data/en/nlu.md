@@ -72,7 +72,9 @@
 - In what languages are the courses translated? 
 
 ## intent:where_certificate_question
-- Where can I find my certificate for the course [COVID-19](course_name)?
+- Where can I find my certificate for the course [Launchpad to Fundamental Questions on AI](course_name)?
+- Where can I find my certificate for the course [Schule macht KI](course_name)?
+- Where can I find my certificate for the course [Dr. med. KI](course_name)?
 - How can I download a [confirmation of participation](certificate_type)?
 - How can I download the certificate?
 - Where do I get a [confirmation of participation](certificate_type)?
@@ -140,4 +142,109 @@
 - How can I use a different [mail](profile-info)?
 - Where can I set my [email address](profile-info)?
 
-
+## intent:ask_whatspossible
+- Can you explain me in one sentence what you are doing?
+- Can you help me?
+- Could you please show me what you can
+- Great, is there anything else you can do, bot?
+- How can you help me
+- How you help me?
+- I need help
+- I need some help
+- What are my options
+- What are you able to do?
+- What can I ask you?
+- What can I do?
+- What can you demo
+- What can you do
+- What can you do for me?
+- What can you do?
+- What can you tell me?
+- What do you do
+- anything els
+- are there any other options?
+- can I ask you anything else?
+- can you do anything else?
+- can you help me
+- can you help me?
+- come back
+- cool! can I do something else here?
+- hello what can you do for me
+- help
+- help me
+- help please
+- help pls
+- help?
+- hep me
+- hi. Sara what do you do?
+- hm that doesnt quite help me is there anything else you can do?
+- how can i use you
+- how can you help me
+- how can you help me?
+- how can you help?
+- how does this work?
+- how u can help me
+- how you help me
+- i asked you if you can do anything else
+- i don't know what i want
+- i need help
+- more info
+- now what?
+- options
+- show me the menu
+- show me what's possible
+- so now what
+- so what can you do
+- so what can you do?
+- so what can you help me with?
+- so what next?
+- talk to me
+- talk to me!
+- tell me something you can do
+- tell me what's your skill
+- um what now
+- what are all the things you understand?
+- what are the options?
+- what are you ding
+- what are you doing
+- what are you good at?
+- what can I ask ?
+- what can I ask you?
+- what can I do here
+- what can I do with Sara?
+- what can I do with this bot
+- what can i do here
+- what can i do now
+- what can u do
+- what can we talk about?
+- what can you answer
+- what can you do
+- what can you do for me
+- what can you do, sara?
+- what can you do?
+- what can you offer me?
+- what can you tell me
+- what can you?
+- what cn u do for me ?
+- what do you do
+- what do you do?
+- what do you know except this?
+- what else can I do here?
+- what else can i do
+- what else can i do?
+- what else can you do?
+- what else can you help with?
+- what i have to do
+- what is this bot for
+- what u can do
+- what u can do?
+- what you can do
+- what you can do for me?
+- what you can do?
+- what you do
+- what you doing?
+- what you talk about?
+- you can hep me
+- what can you teache me?
+- Can rasa do calculations?
+- what you can
