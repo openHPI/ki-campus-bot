@@ -47,12 +47,12 @@ responses:
   utter_confirmation_email_problem:
     - text: >- 
         If you have not received a confirmation email, please check your spam folder and move the email to your primary mailbox. 
-        Please try resetting your password if your problem persists: https://ki-campus.org/user/password
+        If your problem persists please try resetting your password [here](https://ki-campus.org/user/password).
 
   utter_password_reset_question:
     - text: >- 
         Don't worry. 
-        Go to the https://ki-campus.org/user/password. 
+        Open the [password reset page](https://ki-campus.org/user/password). 
         Type in your email address and click on 'Request password reset.' 
         Your new password has been sent to your email.
 

@@ -582,7 +582,7 @@
 - ssup?
 - helleo
 
-# intent:thank
+## intent:thank
 - Cool. Thanks
 - Great, thanks
 - Thank you
