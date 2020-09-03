@@ -1,11 +1,12 @@
-FROM rasa/rasa:latest-full
+FROM rasa/rasa:1.10.8-full
 
 COPY config.yml /app/config.yml
-COPY domain.yml /app/domain.yml
 COPY credentials.yml /app/credentials.yml
 COPY endpoints.yml /app/endpoints.yml
-COPY data/* /app/data/
+COPY projects/KI-Campus_de/* /app/projects/KI-Campus_de/
+COPY projects/GreetBot_de/* /app/projects/GreetBot_de/
 
-RUN rasa train --domain domain.yml --data data/ --out /app/models/
+
+RUN rasa train --out /app/models
 
 ENTRYPOINT ["rasa"]

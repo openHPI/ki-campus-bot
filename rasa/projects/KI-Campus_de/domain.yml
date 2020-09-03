@@ -1,0 +1,20 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+  - about_moocs_question
+  - about_ki
+responses:
+  utter_about_moocs_question:
+    - text: >-
+        Ein paar grundlegende Informationen zum Thema MOOC haben wir <a
+        href="https://open.hpi.de/pages/mooc">hier</a> zusammen getragen.
+  utter_about_ki:
+    - text: >-
+        Künstliche Intelligenz, auch artifizielle Intelligenz, englisch
+        artificial intelligence ist ein Teilgebiet der Informatik, welches sich
+        mit der Automatisierung intelligenten Verhaltens und dem maschinellen
+        Lernen befasst.
+actions:
+  - utter_about_moocs_question
+  - utter_about_ki

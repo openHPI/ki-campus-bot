@@ -1,0 +1,30 @@
+intents:
+  - greet: {triggers: utter_greet}
+  - goodbye: {triggers: utter_goodbye}
+  - thank: {triggers: utter_thank}
+  - confirm: {triggers: utter_confirm}
+  - cancel: {triggers: utter_cancel}
+  
+responses:
+  utter_greet:
+    - text: Hey, wie kann ich dir helfen?
+    - text: Hey, was kann ich für dich tun?
+
+  utter_goodbye:
+    - text: Auf Wiedersehen!
+  
+  utter_thank:
+    - text: Bitte sehr.
+    - text: Es ist immer schön, hilfreich zu sein.
+
+  utter_cancel:
+    - text: Okay, Ich werde das nicht tun.
+    - text: Alles klar, ich mache es nicht.
+
+  utter_confirm:
+    - text: Alles klar.
+    - text: Okay.
+
+session_config:
+  session_expiration_time: 60  # value in minutes, 0 means infinitely long
+  carry_over_slots_to_new_session: false  # set to false to forget slots between sessions
