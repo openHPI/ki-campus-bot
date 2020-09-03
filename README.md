@@ -5,13 +5,13 @@
 ### Training of the Model (de)
 
 ```sh
-    rasa train --data data/de/ -c config_de.yml -d domain_de.yml --out models_de
+    rasa train -c config_de.yml --out projects/KI-Campus_de/models
 ```
 
 ### Training of the Model (en)
 
 ```sh
-    rasa train --data data/en/ -c config_en.yml -d domain_en.yml --out models_en
+    rasa train -c config_en.yml --out projects/KI-Campus_en/models
 ```
 
 ### Usage
@@ -25,7 +25,7 @@
 2. Inside /rasa start the chatbot 
 
 ```sh
-    rasa run -vv -m models_de --enable-api --log-file out.log --endpoints endpoints.yml --credentials credentials.yml
+    rasa run -vv -m projects/KI-Campus_de/models --enable-api
 ```
 
-Change to models/en for english models
+Change it to projects/KI-Campus_en/models for english models

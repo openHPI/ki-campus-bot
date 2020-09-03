@@ -1,0 +1,18 @@
+intents:
+  - greet: {triggers: utter_greet}
+  - goodbye: {triggers: utter_goodbye}
+  - thank: {triggers: utter_thank}
+  
+responses:
+  utter_greet:
+    - text: "Hello!"
+
+  utter_goodbye:
+    - text: "Goodbye!"
+  
+  utter_thank:
+    - text: "You are welcome."
+
+session_config:
+  session_expiration_time: 60  # value in minutes, 0 means infinitely long
+  carry_over_slots_to_new_session: false  # set to false to forget slots between sessions
