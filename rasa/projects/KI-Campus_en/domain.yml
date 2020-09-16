@@ -2,16 +2,16 @@ session_config:
   session_expiration_time: 60  # value in minutes, 0 means infinitely long
   carry_over_slots_to_new_session: true  # set to false to forget slots between sessions
 intents:
-  - payment_question: {triggers: utter_payment_question}
-  - account_creation_question: {triggers: utter_account_creation_question}
-  - confirmation_email_problem: {trigger: confirmation_email_problem}
-  - password_reset_question: {triggers: utter_password_reset_question}
-  - whats_kicampus_question: {triggers: utter_whats_kicampus_question}
-  - kicampus_access_question: {triggers: utter_kicampus_access_question}
-  - course_type_question: {triggers: utter_course_type_question}
-  - course_structure_question: {triggers: utter_course_structure_question}
-  - timelimit_question: {triggers: utter_timelimit_question}
-  - change_info: {triggers: utter_change_info_question}
+  - payment_question
+  - account_creation_question
+  - confirmation_email_problem
+  - password_reset_question
+  - whats_kicampus_question
+  - kicampus_access_question
+  - course_type_question
+  - course_structure_question
+  - timelimit_question
+  - change_info
 entities:
   - profile-info
 responses:
