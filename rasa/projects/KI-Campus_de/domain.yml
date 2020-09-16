@@ -2,22 +2,22 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-  - about_moocs_question: {triggers: utter_about_moocs_question}
-  - about_ki: {triggers: utter_about_ki}
-  - about_ki_campus: {triggers: utter_about}
-  - target_group_ki_campus: {triggers: utter_target_group}
-  - goals_ki_campus: {triggers: utter_goals}
-  - developer_ki_campus: {triggers: utter_developers}
-  - learningoffer_ki_campus: {triggers: utter_learningoffer}
-  - topics_ki_campus: {triggers: utter_topics}
-  - prior_knowledge_ki_campus: {triggers: utter_prior_knowledge}
-  - student_ki_campus: {triggers: utter_student}
-  - recognition_ki_campus: {triggers: utter_recognition}
-  - english_ki_campus: {triggers: utter_english}
-  - timelimit_ki_campus: {triggers: utter_english}
-  - costs_ki_campus: {triggers: utter_costs}
-  - editor_ki_campus: {triggers: utter_editor}
-  - partners_cooperations: {triggers: utter_partner_cooperation}
+  - about_moocs_question
+  - about_ki
+  - about_ki_campus
+  - target_group_ki_campus
+  - goals_ki_campus
+  - developer_ki_campus
+  - learningoffer_ki_campus
+  - topics_ki_campus
+  - prior_knowledge_ki_campus
+  - student_ki_campus
+  - recognition_ki_campus
+  - english_ki_campus
+  - timelimit_ki_campus
+  - costs_ki_campus
+  - editor_ki_campus
+  - partners_cooperations
 responses:
   utter_about_moocs_question:
     - text: >-
