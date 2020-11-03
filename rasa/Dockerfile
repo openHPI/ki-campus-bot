@@ -1,4 +1,4 @@
-FROM rasa/rasa:1.10.8-full
+FROM rasa/rasa:2.0.3-full
 
 COPY config_de.yml /app/config.yml
 COPY credentials.yml /app/credentials.yml

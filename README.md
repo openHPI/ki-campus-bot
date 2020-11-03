@@ -5,27 +5,21 @@
 ### Training of the Model (de)
 
 ```sh
-    rasa train -c config_de.yml --out projects/KI-Campus_de/models
+    rasa train -c config_de.yml --out models/KI-Campus_de
 ```
 
 ### Training of the Model (en)
 
 ```sh
-    rasa train -c config_en.yml --out projects/KI-Campus_en/models
+    rasa train -c config_en.yml --out models/KI-Campus_en
 ```
 
 ### Usage
 
-1. Start docker in the outer project structure
+Inside /rasa start the chatbot 
 
 ```sh
-    docker run -p 8001:8000 rasa/duckling
+    rasa run -vv -m models/KI-Campus_de --enable-api
 ```
 
-2. Inside /rasa start the chatbot 
-
-```sh
-    rasa run -vv -m projects/KI-Campus_de/models --enable-api
-```
-
-Change it to projects/KI-Campus_en/models for english models
+Change it to models/KI-Campus_en for english models
