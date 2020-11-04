@@ -204,4 +204,16 @@ nlu:
       - what can you teache me?
       - Can rasa do calculations?
       - what you can
+
+  - synonym: AI
+    examples: |
+      - Künstliche Intelligenz
+      - Artificial Intelligence 
+      - Artifizielle Intelligenz
+      - KI
+      - ki
+      - Ki
+      - Ai
+      - ki
+      - ai
       

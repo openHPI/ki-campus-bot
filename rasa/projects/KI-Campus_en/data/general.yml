@@ -14,6 +14,7 @@ nlu:
       - correct
       - great choice
       - sounds really good
+
   - intent: deny
     examples: |
       - I don't want to
@@ -116,3 +117,4 @@ nlu:
       - stop it, i do not care!!!
       - none of them
       - I don't agree
+      

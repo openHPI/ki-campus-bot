@@ -9,6 +9,7 @@ intents:
 actions:
   - utter_more_info
   - utter_have_a_nice_day
+  - utter_anything_else
 
 entities:
   - profile-info
