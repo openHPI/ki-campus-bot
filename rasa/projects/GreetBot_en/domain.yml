@@ -1,18 +1,31 @@
+version: '2.0'
+
 intents:
-  - greet: {triggers: utter_greet}
-  - goodbye: {triggers: utter_goodbye}
-  - thank: {triggers: utter_thank}
+  - greet
+  - goodbye
+  - thank
+  
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_you_are_welcome
+  - utter_anything_else
   
 responses:
+
+  utter_anything_else:
+  - text: "Is there anything else I can help you with?"
+
   utter_greet:
-    - text: "Hello!"
+    - text: "Hello! What can I help you with?"
 
   utter_goodbye:
     - text: "Goodbye!"
   
-  utter_thank:
+  utter_you_are_welcome:
     - text: "You are welcome."
 
 session_config:
   session_expiration_time: 60  # value in minutes, 0 means infinitely long
-  carry_over_slots_to_new_session: false  # set to false to forget slots between sessions
+  carry_over_slots_to_new_session: true  # set to false to forget slots between sessions
+  

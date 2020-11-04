@@ -5,27 +5,57 @@
 ### Training of the Model (de)
 
 ```sh
-    rasa train -c config_de.yml --out projects/KI-Campus_de/models
+    rasa train -c config_de.yml --out models/KI-Campus_de
 ```
 
 ### Training of the Model (en)
 
 ```sh
-    rasa train -c config_en.yml --out projects/KI-Campus_en/models
+    rasa train -c config_en.yml --out models/KI-Campus_en
 ```
 
 ### Usage
 
-1. Start docker in the outer project structure
+Inside /rasa start the chatbot 
 
 ```sh
-    docker run -p 8001:8000 rasa/duckling
+    rasa run -vv -m models/KI-Campus_de --enable-api
 ```
 
-2. Inside /rasa start the chatbot 
+Change it to models/KI-Campus_en for english models
+
+## Docker
+
+For local usage change the ports of the docker-compose files to `5005:5005`.
+
+### Create Image (de)
+
+Inside /rasa start the chatbot 
 
 ```sh
-    rasa run -vv -m projects/KI-Campus_de/models --enable-api
+    docker image build -t kicampus_de:1.0 . -f Dockerfile_de
 ```
 
-Change it to projects/KI-Campus_en/models for english models
+### Create Image (en)
+
+Inside /rasa start the chatbot 
+
+```sh
+    docker image build -t kicampus_en:1.0 . -f Dockerfile_en
+```
+
+### Docker Compose (de)
+
+In the outer project structure run:
+
+```sh
+    docker-compose -f docker-compose_de.yml -p kicampus_de up
+```
+
+### Docker Compose (en)
+
+In the outer project structure run:
+
+```sh
+    docker-compose -f docker-compose_en.yml -p kicampus_en up
+```

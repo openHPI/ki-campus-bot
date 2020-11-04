@@ -1,0 +1,53 @@
+version: '2.0'
+
+nlu:
+  - intent: affirm
+    examples: |
+      - yes
+      - yep
+      - ja
+      - jap
+      - okay
+      - gut
+      - passt
+      - jaha
+      - jo
+      - yeah
+      - ok
+      - korrekt
+      - genau
+      - jup
+      - auf jeden Fall
+      - ja, bitte
+  - intent: deny
+    examples: |
+      - Nein danke
+      - Nein
+      - Ich möchte nicht
+      - Nah
+      - No
+      - Na
+      - Nee
+      - Ne
+      - Neeee
+      - Nein, nicht wirklich
+      - Absolut nicht
+      - ablehnen
+      - Ich lehne ab
+      - Ich denke nicht
+      - Nopes
+      - n
+      - na
+      - nah
+      - nehi
+      - nope
+      - nop
+      - vergiss es
+      - nein tu es nicht
+      - nicht jetzt
+      - das wollte ich nicht
+      - stop
+      - tu es nicht
+      - bitte nicht
+      - nein
+      - nö
