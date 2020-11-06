@@ -24,7 +24,6 @@ responses:
   utter_end_of_conversation:
   - custom:
       signal: "End of Conversation"
-
   utter_have_a_nice_day:
   - text: "Okay. Have a nice day! Bye."
 
