@@ -20,4 +20,3 @@ stories:
     - intent: deny
     - action: utter_have_a_nice_day
     - action: utter_end_of_conversation
-
