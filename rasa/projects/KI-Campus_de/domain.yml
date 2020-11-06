@@ -9,12 +9,17 @@ actions:
   - utter_more_info
   - utter_have_a_nice_day
   - utter_anything_else
+  - utter_end_of_conversation
 
 session_config:
   session_expiration_time: 60  # value in minutes, 0 means infinitely long
   carry_over_slots_to_new_session: true  # set to false to forget slots between sessions
 
 responses:
+  utter_end_of_conversation:
+  - custom:
+      signal: "End of Conversation"
+
   utter_have_a_nice_day:
   - text: "Okay. Ich wünsche Ihnen noch einen schönen Tag! Auf Wiedersehen."
 

@@ -10,8 +10,12 @@ actions:
   - utter_goodbye
   - utter_you_are_welcome
   - utter_anything_else
+  - utter_end_of_conversation
   
 responses:
+  utter_end_of_conversation:
+  - custom:
+      signal: "End of Conversation"
 
   utter_anything_else:
   - text: "Is there anything else I can help you with?"
