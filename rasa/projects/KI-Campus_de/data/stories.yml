@@ -19,10 +19,5 @@ stories:
     - checkpoint: more_information
     - intent: deny
     - action: utter_have_a_nice_day
-    - checkpoint: user_thanks_bot
+    - action: utter_end_of_conversation
 
-- story: faq & no more information & thanking
-  steps:
-    - checkpoint: user_thanks_bot
-    - intent: thank
-    - action: utter_you_are_welcome
