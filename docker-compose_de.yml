@@ -4,6 +4,6 @@ services:
   rasa:
     image: kicampus_de:1.0
     ports:
-      - "54321:5005"
+      - "12345:5005"
     command:  run -vv -m /app/models/ --enable-api --endpoints /app/endpoints.yml --credentials /app/credentials.yml --cors "*"
     networks: ['rasa-network']
