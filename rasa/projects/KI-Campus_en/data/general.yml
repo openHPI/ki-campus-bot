@@ -1,6 +1,13 @@
 version: '2.0'
 
 nlu:
+  - intent: out_of_scope
+    examples: |
+      - I want to order food
+      - What is 2 + 2?
+      - Who's the [US(country)] President?
+      - How can I move to the [US](country)?
+      - What's the capital of [Germany](country)?
   - intent: affirm
     examples: |
       - yes
@@ -117,4 +124,3 @@ nlu:
       - stop it, i do not care!!!
       - none of them
       - I don't agree
-      

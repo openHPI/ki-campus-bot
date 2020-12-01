@@ -1,6 +1,14 @@
 version: '2.0'
 
 nlu:
+  - intent: out_of_scope
+    examples: |
+      - Ich will Essen bestellen
+      - Ich will Pizza
+      - Was ist 2 + 2?
+      - Wer ist der Präsident von [US(country)]?
+      - Wie kann ich nach [US](country) ziehen?
+      - Was ist die Hauptstadt von [Germany](country)?
   - intent: affirm
     examples: |
       - yes
