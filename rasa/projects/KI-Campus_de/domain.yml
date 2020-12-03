@@ -19,7 +19,7 @@ responses:
   utter_out_of_scope:
   - text: Tut mir leid, diese Anfrage kann ich nicht bearbeiten.
 
-  utter_please_rephrase:
+  utter_ask_rephrase:
   - text: Es tut mir leid, das habe ich nicht ganz verstanden. Könnten Sie es anders formulieren?
 
   utter_use_contact_form:

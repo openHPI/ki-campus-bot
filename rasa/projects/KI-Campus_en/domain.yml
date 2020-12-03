@@ -25,7 +25,7 @@ responses:
   utter_out_of_scope:
   - text: Sorry, I can't handle that request.
 
-  utter_please_rephrase:
+  utter_ask_rephrase:
   - text: I'm sorry, I didn't quite understand that. Could you rephrase?
 
   utter_use_contact_form:
