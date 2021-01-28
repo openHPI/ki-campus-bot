@@ -6,10 +6,10 @@ intents:
   - thank
   
 actions:
+  - utter_anything_else
   - utter_greet
   - utter_goodbye
   - utter_you_are_welcome
-  - utter_anything_else
   - utter_end_of_conversation
   
 responses:

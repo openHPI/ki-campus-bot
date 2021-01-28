@@ -9,6 +9,30 @@ nlu:
       - Wer ist der Präsident von [US(country)]?
       - Wie kann ich nach [US](country) ziehen?
       - Was ist die Hauptstadt von [Germany](country)?
+  - intent: inform
+    examples: |
+      - [Team Peer Assessment](course-title)
+      - [Cloud und Virtualisierung](course-title)
+      - [Geovisualisierung](course-title)
+      - The course [Geovisualisierung](course-title)
+  - intent: get_courses
+    examples: |
+      - Ich möchte meine Kurse
+      - Gib mir alle meine Kurse
+      - Zeig mir alle meine Kurse
+      - Zeig mir alle Kurse, für die ich eingeschrieben bin
+      - Alle meine Kurse auflisten
+      - Ich möchte eine Liste aller meiner Kurse
+      - Ich möchte meine Kursliste
+  - intent: get_achievements
+    examples: |
+      - Ich möchte meine aktuellen Erfolge sehen
+      - Ich möchte meinen aktuellen Fortschritt sehen
+      - Wie gut bin ich im Moment
+      - Zeig mir alle meine Leistungen
+      - Zeige mir meinen Fortschritt
+      - Meine Leistungen auflisten
+      - Ich möchte meinen Kursfortschritt
   - intent: affirm
     examples: |
       - yes

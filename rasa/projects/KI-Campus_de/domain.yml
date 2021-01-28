@@ -4,6 +4,9 @@ intents:
   - deny
   - affirm
   - faq
+  - get_courses
+  - get_achievements
+  - inform
 
 actions:
   - utter_more_info
@@ -11,11 +14,39 @@ actions:
   - utter_anything_else
   - utter_end_of_conversation
 
+  - action_get_courses
+  - action_get_achievements
+  - action_course_set
+  - action_set_current_course
+  - action_download_certificate
+
+entities:
+  - certificate_type
+  - course-title
+
+slots:
+  all_courses:
+    type: list
+    influence_conversation: false
+  current_course:
+    type: text
+    influence_conversation: false
+  course-set:
+    type: bool
+  current_course_achieved:
+    type: bool
+
 session_config:
   session_expiration_time: 60  # value in minutes, 0 means infinitely long
   carry_over_slots_to_new_session: true  # set to false to forget slots between sessions
 
 responses:
+  utter_download_certificate:
+  - text: Möchten Sie das Zertifikat herunterladen?
+
+  utter_ask_which_course:
+  - text: Bitte wählen Sie einen Kurs aus.
+
   utter_out_of_scope:
   - text: Tut mir leid, diese Anfrage kann ich nicht bearbeiten.
 

@@ -8,6 +8,31 @@ nlu:
       - Who's the [US(country)] President?
       - How can I move to the [US](country)?
       - What's the capital of [Germany](country)?
+  - intent: inform
+    examples: |
+      - [Team Peer Assessment](course-title)
+      - [Cloud und Virtualisierung](course-title)
+      - [Geovisualisierung](course-title)
+      - The course [Geovisualisierung](course-title)
+  - intent: get_courses
+    examples: |
+      - I want my courses
+      - Give me all my courses
+      - Show me all my courses
+      - Show my all the courses I am enrolled to
+      - List all my courses
+      - I want a list of all my courses
+      - I want my course list
+  - intent: get_achievements
+    examples: |
+      - I want to see my current achievements
+      - I want to see my current progress
+      - How good am I at the moment
+      - Show me all my achievements
+      - Show me my progress
+      - List my achievements
+      - I want my course achievements
+      - I want my course progress
   - intent: affirm
     examples: |
       - yes
