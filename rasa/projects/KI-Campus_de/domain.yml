@@ -13,6 +13,8 @@ actions:
   - utter_have_a_nice_day
   - utter_anything_else
   - utter_end_of_conversation
+  - utter_ask_which_course
+  - utter_download_certificate
 
   - action_get_courses
   - action_get_achievements
@@ -22,14 +24,22 @@ actions:
 
 entities:
   - certificate_type
+  - course_name
   - course-title
+
 
 slots:
   all_courses:
     type: list
     influence_conversation: false
-  current_course:
+  current_course_title:
     type: text
+    influence_conversation: false
+  current_course:
+    type: list
+    influence_conversation: false
+  current_achievements:
+    type: list
     influence_conversation: false
   course-set:
     type: bool

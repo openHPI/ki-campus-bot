@@ -11,10 +11,11 @@ nlu:
       - Was ist die Hauptstadt von [Germany](country)?
   - intent: inform
     examples: |
-      - [Team Peer Assessment](course-title)
-      - [Cloud und Virtualisierung](course-title)
-      - [Geovisualisierung](course-title)
-      - The course [Geovisualisierung](course-title)
+      - [Dr. med. KI](course-title)
+      - [Einführung in die KI](course-title)
+      - [Erklärbares Maschinelles Lernen für Ingenieurwissenschaften](course-title)
+      - Der Kurs [Launchpad to Fundamental Questions on AI](course-title)
+      - [Schule macht KI](course-title)
   - intent: get_courses
     examples: |
       - Ich möchte meine Kurse

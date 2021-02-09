@@ -39,7 +39,7 @@ stories:
       - course-title: "Team Peer Assessments"
     - action: action_set_current_course
     - slot_was_set:
-      - current_course: "Team Peer Assessments"
+      - current_course_title: "Team Peer Assessments"
     - checkpoint: get_achievements
 
 - story: get achievements course-set
