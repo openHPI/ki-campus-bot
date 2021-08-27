@@ -45,7 +45,7 @@ responses:
   utter_faq/ask_about_ki:
     - text: >-
         Künstliche Intelligenz (KI) ist ein Fachgebiet der Informatik, das sich mit Konzepten und Methoden beschäftigt, die Computer befähigen ihre Umgebung wahrzunehmen, zu denken, zu handeln, zu kommunizieren und zu lernen. 
-	      Die Methoden und Konzepte werden durch Algorithmen als KI-Systeme realisiert.  
+        Die Methoden und Konzepte werden durch Algorithmen als KI-Systeme realisiert.  
   utter_faq/ask_about_ki_campus:
     - text: >-
         Der KI-Campus ist eine auf das Thema Künstliche Intelligenz (KI) spezialisierte digitale Lernplattform, die seit Juli 2020 als Beta-Version öffentlich verfügbar ist und fortlaufend weiterentwickelt wird. 
