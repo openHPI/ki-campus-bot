@@ -159,6 +159,15 @@ nlu:
     examples: |
       - Kampus
 
+  - synonym: KI Campus
+    examples: |
+      - ki campus
+      - AI campus
+      - KI Kampus
+      - ai kampus
+      - AI Kampus
+      - ki Campus
+
   - synonym: englisch
     examples: |
       - en
