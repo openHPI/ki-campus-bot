@@ -1,0 +1,204 @@
+version: '2.0'
+
+nlu:
+# Greetbot: hello, goodbye, thank
+# Course search
+
+# general
+  # - intent: affirm
+  #   examples: |
+  #     - yes
+  #     - yep
+  #     - ja
+  #     - jap
+  #     - okay
+  #     - gut
+  #     - passt
+  #     - jaha
+  #     - jo
+  #     - yeah
+  #     - ok
+  #     - korrekt
+  #     - genau
+  #     - jup
+  #     - auf jeden Fall
+  #     - ja, bitte
+  # - intent: deny
+  #   examples: |
+  #     - Nein danke
+  #     - Nein
+  #     - Ich möchte nicht
+  #     - Nah
+  #     - No
+  #     - Na
+  #     - Nee
+  #     - Ne
+  #     - Neeee
+  #     - Nein, nicht wirklich
+  #     - Absolut nicht
+  #     - ablehnen
+  #     - Ich lehne ab
+  #     - Ich denke nicht
+  #     - Nopes
+  #     - n
+  #     - na
+  #     - nah
+  #     - nehi
+  #     - nope
+  #     - nop
+  #     - vergiss es
+  #     - nein tu es nicht
+  #     - nicht jetzt
+  #     - das wollte ich nicht
+  #     - stop
+  #     - tu es nicht
+  #     - bitte nicht
+  #     - nein
+  #     - nö
+  # - intent: out_of_scope
+  #   examples: |
+  #     - Ich will Essen bestellen
+  #     - Ich will Pizza
+  #     - Was ist 2 + 2?
+  #     - Wer ist der Präsident von [US(country)]?
+  #     - Wie kann ich nach [US](country) ziehen?
+  #     - Was ist die Hauptstadt von [Germany](country)?
+  - intent: undecided
+    examples: |
+      - egal
+      - weiß nicht
+      - keine Ahnung
+      - Das kann ich nicht sagen
+      - Ist mir egal
+      - Wie du willst
+      - Ich weiß noch nicht 
+  - intent: restart
+    examples: |
+      - restart
+      - noch mal neu anfangen
+      - starte neu 
+      - abbrechen
+      - Bitte die Konversation neu starten.
+      - Noch mal von vorne anfangen.
+      - Neustart.
+# coursesearch
+  - intent: start_course_form
+    examples: |
+      - Ich möchte eine Kursempfehlung erhalten.
+      - Kannst du mir einen Kurs empfehlen?
+      - Wechen Onlinekurs soll ich belegen?
+      - Gibt es hier eine Kursberatung?
+      - Finde mir einen Kurs!
+      - Ich suche Kurse zum Thema [KI](topic)
+      - Welche Kurse hat der KI Campus im Angebot?
+  - intent: inform
+    examples: |
+      - auf [Deutsch](language)
+      - auf [Englisch](language)
+      - lieber [Deutsch](language)
+      - gerne in [Englisch](language)
+      - ich bin [Einsteiger](level)
+      - [Einführung in die KI](topic)
+      - [Vertiefung einzelner Themenfelder der KI](topic)
+      - [KI in Berufsfeldern](topic)
+      - [KI und Gesellschaft](topic)
+      - [Data Science](topic)
+      - [Maschinelles Lernen](topic)
+      - ich bin [Einsteigerin](level)
+      - ich bin [Fortgeschritten](level)
+      - ich bin [Experte](level)
+      - [zehn](max_duration) Stunden
+      - [fünfzig](max_duration) Stunden
+      - [über fünfzig](max_duration) Stunden
+# - [> 50](duration)
+# egal uttrance wie einfügen (für verschiedene Entities)
+  - intent: FAQ_time
+    examples: |
+      - Meinst du stündlich?
+      - Die Woche?
+      - Wie ist die Stundenzahl gemeint?
+      - pro Woche?
+      - pro Monat?
+      - Erkläre die Stundenzahl 
+  - intent: FAQ_costs
+    examples: |
+      - Wie teuer?
+      - Kostet das was?
+      - Was sind die Preise für die Kurse?
+      - Muss man Geld bezahlen?
+      - Sind die Kurse kostenlos?
+  - intent: FAQ_languages
+    examples: |
+      - Welche Sprachen habt ihr?
+      - Gibt es auch andere Sprachen?
+      - Bitte Sprachoptionen?
+      - Habt ihr nur [Englisch](language)?
+  - intent: stop_form
+    examples: |
+      - stop
+      - ich möchte die kurssuche beenden
+      - bitte beenden
+      - befragnung anhalten
+      - suche abbrechen
+
+# synonyme course_form  
+  - synonym: englisch
+    examples: |
+      - EN
+      - english
+      - Englisch
+  - synonym: deutsch
+    examples: |
+      - DE
+      - german
+  - synonym: egal
+    examples: |
+      - weis nicht
+      - keine ahnung
+  - synonym: KI-Einführung
+    examples: |
+      - Einführung in die KI
+  - synonym: KI-Vertiefung
+    examples: |
+      - Vertiefung einzelner Themenfelder der KI
+      - Vertiefung einzelner Themenfelder
+  - synonym: KI-Berufsfelder
+    examples: |
+      - KI in Berufsfeldern
+  - synonym: KI-Gesellschaft
+    examples: |
+      - KI und Gesellschaft
+  - synonym: Data Science
+    examples: |
+      - data science
+  - synonym: Maschinelles Lernen
+    examples: |
+      - ML
+  - synonym: Einsteiger
+    examples: |
+      - Einsteigerin
+      - Anfängerin
+      - keine Erfahrung
+      - einsteiger
+  - synonym: Fortgeschritten
+    examples: |
+      - Fortgeschrittene
+  - synonym: Experte
+    examples: |
+      - Expertin
+  - synonym: '10'
+    examples: |
+      - zehn
+      - Zehn
+      - ten
+  - synonym: '50'
+    examples: |
+      - fünfzig
+      - fifty
+  - synonym: '51'
+    examples: |
+      - '> 50'
+      - mehr als fünfzig
+      - über 50 
+      - mehr als 50
+      - über fünfzig

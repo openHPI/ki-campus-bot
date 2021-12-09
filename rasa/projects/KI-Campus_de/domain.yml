@@ -20,7 +20,7 @@ responses:
   - text: Tut mir leid, diese Anfrage kann ich nicht bearbeiten.
 
   utter_ask_rephrase:
-  - text: Es tut mir leid, das habe ich nicht ganz verstanden. Könnten Sie es anders formulieren?
+  - text: Es tut mir leid, das habe ich nicht ganz verstanden. Könntest Sie es anders formulieren?
 
   utter_use_contact_form:
   - text: Sie können auch unser Kontaktformular verwenden, um Hilfe für Ihr technisches Problem zu erhalten. Wir werden versuchen, Ihnen so schnell wie möglich zu antworten.

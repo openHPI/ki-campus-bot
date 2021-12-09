@@ -1,0 +1,53 @@
+version: '2.0'
+
+stories:
+# course search
+  - story: languages interjection
+    steps:
+    - intent: start_course_form
+    - action: utter_introduce_course_form
+    - action: course_form
+    - active_loop: course_form
+    - intent: FAQ_languages
+    - action: utter_FAQ_languages
+    - action: course_form
+
+  - story: time interjection
+    steps:
+    - intent: start_course_form
+    - action: utter_introduce_course_form
+    - action: course_form
+    - active_loop: course_form
+    - intent: FAQ_time
+    - action: utter_FAQ_time
+    - action: course_form
+
+  - story: costs interjection
+    steps:
+    - intent: start_course_form
+    - action: utter_introduce_course_form
+    - action: course_form
+    - active_loop: course_form
+    - intent: FAQ_costs
+    - action: utter_FAQ_costs
+    - action: course_form
+
+  - story: stop course form
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: start_course_form 
+    - action: utter_introduce_course_form
+    - action: course_form    
+    - active_loop: course_form
+    - intent: stop_form
+    - action: utter_ask_continue_course_form
+    - or:
+      - intent: stop_form
+      - intent: affirm
+    - action: action_deactivate_loop
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    - intent: goodbye
+    - action: utter_goodbye

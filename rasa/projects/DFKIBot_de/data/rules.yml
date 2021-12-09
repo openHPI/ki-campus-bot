@@ -1,0 +1,36 @@
+version: '2.0'
+
+rules:
+# course search
+  - rule: activate course form
+    steps:
+      - intent: start_course_form # intent that triggers form activation
+      - action: utter_introduce_course_form
+      - action: course_form      # run the form
+      - active_loop: course_form # this form is active
+
+  - rule: submit course form
+    condition:
+    - active_loop: course_form   # this form must be active
+    steps:
+      - action: course_form      # run the form
+      - active_loop: null            # the form is no longer active because it has been filled
+      # - action: utter_submit_course_form         # action to take after the form is complete
+      - action: utter_slots_values   # action to take after the form is complete
+      - action: action_get_learning_recommendation
+
+  - rule: restart conversation
+    steps:
+      - intent: restart
+      - action: action_restart
+
+# general
+  # - rule: out of scope
+  #   steps:
+  #   - intent: out_of_scope
+  #   - action: utter_out_of_scope
+
+#  - rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+    # steps:
+    # - intent: nlu_fallback
+    # - action: utter_please_rephrase

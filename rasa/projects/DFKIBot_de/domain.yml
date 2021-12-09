@@ -1,0 +1,199 @@
+version: '2.0'
+
+intents:
+  - start_course_form
+  - inform
+  #- out_of_scope
+  - undecided
+  - restart
+  - FAQ_time
+  - FAQ_languages
+  - FAQ_costs
+  - stop_form
+
+actions:
+  - action_get_learning_recommendation
+  - utter_introduce_course_form
+  - action_restart
+  - utter_restart
+  #- utter_out_of_scope
+  - utter_FAQ_languages
+  - utter_FAQ_costs
+  - utter_FAQ_time
+  - utter_ask_continue_course_form
+  - validate_course_form
+
+responses:
+  utter_ask_continue_course_form:
+  - text: Bist du sicher, dass du die Kurssuche abbrechen möchtest?
+
+  utter_FAQ_languages:
+  - text: Wir bieten auf dem KI-Campus nur Kurse in den Sprachen Deutsch und Englisch an!
+
+  utter_FAQ_costs:
+  - text: Alle unsere Kurse sind kostenfrei!
+
+  utter_FAQ_time:
+  - text: Die Kurse sind nach ihrer gesamten Stundenzahl unterteilt! 
+
+  # utter_please_rephrase:
+  # - text: Das habe ich leider nicht verstanden. Am besten verstehe ich kurze und eideutige Formulierungen. Versuche es noch einmal!
+
+  # utter_out_of_scope:
+  # - text: Entschuldige, das habe ich nicht verstanden. Momentan kann ich dir nur eine Kursempfehlung geben. Du kannst auch "Neustart" eingeben, um die Konversation von vorne zu beginnen.
+  
+  utter_restart:
+  - text: Wir starten die Konversation jetzt noch mal neu!
+
+  utter_introduce_course_form:
+  - text: Alles klar! Mein Ziel ist es einen passenden Kurs für dich auf dem KI-Campus zu finden. Hierzu werde ich dir ein paar Fragen zu deinem konkreten Wunschkurs stellen!
+
+  utter_ask_language:
+    - text: Möchtest du einen Kurs auf Englisch oder  auf Deutsch machen?
+  
+  utter_ask_topic:
+    - text: 'Und worum soll es im Kurs gehen? z.B. gibt es Kurse zu den folgenden Themen:' 
+      buttons: 
+        - title: Einführung in die KI
+          payload: /inform{{"topic":"Einführung in die KI"}}     
+        - title: Vertiefung einzelner Themenfelder der KI
+          payload: /inform{{"topic":"Vertiefung einzelner Themenfelder der KI"}}  
+        - title: KI in Berufsfeldern
+          payload: /inform{{"topic":"KI in Berufsfeldern"}}  
+        - title: KI und Gesellschaft
+          payload: /inform{{"topic":"KI und Gesellschaft"}}  
+        - title: Data Science
+          payload: /inform{{"topic":"Data Science"}}    
+        - title: Maschinelles Lernen
+          payload: /inform{{"topic":"Maschinelles Lernen"}}      
+
+  utter_ask_level:
+    - text: Wie würdest du denn deine Vorkenntnisse im Bereich der KI einschätzen? Eher Einsteiger:in, Fortgeschrittene:r oder sogar bereits Expert:in? 
+
+  utter_ask_startdate:
+    - text: Wir haben auch viele Kurse im Angebot, die erst in ein paar Monaten starten. Soll der Kurs bereits verfübgar sein?
+      buttons: 
+        - title: Ja
+          payload: '/affirm'
+        - title: Nein
+          payload: '/deny'
+
+  utter_ask_live:
+    - text: Darf Kurs feste Termine beinhalten?
+      buttons: 
+      - title: Ja
+        payload: '/affirm'
+      - title: Nein
+        payload: '/deny'
+
+  utter_ask_max_duration:
+    - text: Wieviele Stunden möchtest du insgesamt für deinen Kurs aufwenden? Also z.B. maximal 10 Stunden, eher bis 50 Stunden, mehr als 50 Stunden
+  
+  utter_submit_course_form:
+    - text: 'Prima! Folgende Eingaben hast du gemacht:'
+  
+  utter_slots_values:
+    - text: '- language: {language}
+            - topic: {topic}
+            - level: {level}
+            - startdate: {startdate}
+            - live: {live}
+            - max_duration: {max_duration}'
+
+forms:
+  course_form:
+    required_slots:
+        language:
+          - type: from_entity
+            entity: language
+          - type: from_intent
+            intent: undecided
+            value: 'egal'  
+        topic:
+          - type: from_entity
+            entity: topic
+          - type: from_intent
+            intent: undecided
+            value: 'egal'  
+        level:
+          - type: from_entity
+            entity: level
+        startdate:
+          - type: from_intent
+            value: False
+            intent: deny
+            not_intent: affirm
+          - type: from_intent
+            value: True
+            intent: affirm
+            not_intent: deny
+        live:
+          - type: from_intent
+            value: False
+            intent: deny
+            not_intent: affirm
+          - type: from_intent
+            value: True
+            intent: affirm
+            not_intent: deny
+        max_duration:
+          - type: from_entity
+            entity: max_duration
+          - type: from_intent
+            intent: undecided
+            value: '0'
+
+entities:
+  - language
+  - topic
+  - level
+  - max_duration
+
+slots:
+  language:
+    type: categorical
+    values:
+      - englisch
+      - deutsch
+      - egal
+    auto_fill: false
+    influence_conversation: false
+  topic:
+    type: categorical
+    values:
+      - KI-Einführung
+      - KI-Vertiefung
+      - KI-Berufsfelder
+      - KI-Gesellschaft
+      - Data Science
+      - Maschinelles Lernen
+      - egal
+    auto_fill: false
+    influence_conversation: false
+  level:
+    type: categorical
+    values:
+      - Einsteiger
+      - Fortgeschritten
+      - Experte
+    auto_fill: false
+    influence_conversation: false
+  startdate:
+    type: bool
+    influence_conversation: false
+  live:
+    type: bool
+    influence_conversation: false
+  max_duration:
+    type: categorical
+    values:
+      - '0'
+      - '10'
+      - '50'
+      - '51'
+    auto_fill: false
+    influence_conversation: false
+
+session_config:
+  session_expiration_time: 60  # value in minutes, 0 means infinitely long
+  carry_over_slots_to_new_session: true  # set to false to forget slots between sessions
