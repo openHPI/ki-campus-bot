@@ -14,11 +14,19 @@ class CourseSet(Action):
 	def run(self, dispatcher, tracker, domain):
 		currentCourse = tracker.get_slot('current_course_title')
 		if currentCourse:
-			print('true')
 			return [SlotSet('course-set', True)]
 		else:
-			print('false')
 			return [SlotSet('course-set', False)]
+
+class PrintAllSlots(Action):
+	def name(self):
+		return "action_all_slots"
+
+	def run(self, dispatcher, tracker, domain):
+		currentCourse = tracker.get_slot('current_course_title')
+		print(currentCourse)
+		print("Hello")
+		return []
 
 class SetCurrentCourse(Action):
 	def name(self):
@@ -63,7 +71,9 @@ class ActionGetCourses(Action):
 			current_state = tracker.current_state()
 			token = current_state['sender_id']
 			currentCourseTitle = tracker.slots['current_course_title']
+			print(currentCourseTitle)
 			allCourses = tracker.slots['all_courses']
+			print(allCourses)
 			for course in allCourses:
 				if currentCourseTitle in course['title']:
 					courseId = course['id']

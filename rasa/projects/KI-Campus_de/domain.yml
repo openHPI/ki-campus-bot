@@ -1,31 +1,40 @@
 version: '2.0'
 
+forms:
+  course_form:
+    ignored_intents:
+    - faq
+    - greet
+    - goodbye
+    - thank
+    - deny
+    - affirm
+    required_slots:
+        current_course_title:
+          - type: from_text
+
 intents:
-  - deny
-  - affirm
-  - faq
-  - get_courses
-  - get_achievements
-  - inform
+- deny
+- affirm
+- faq
+- get_course
+- get_achievements
+- get_courses
+- inform: {use_entities: true}
 
 actions:
-  - utter_more_info
-  - utter_have_a_nice_day
-  - utter_anything_else
-  - utter_end_of_conversation
-  - utter_ask_which_course
-  - utter_download_certificate
-
-  - action_get_courses
-  - action_get_achievements
-  - action_course_set
-  - action_set_current_course
-  - action_download_certificate
+- action_get_courses
+- action_get_achievements
+- action_course_set
+- action_set_current_course
+- action_download_certificate
+- action_all_slots
 
 entities:
-  - certificate_type
-  - course_name
-  - course-title
+- certificate_type
+- course_name
+- Course
+- country
 
 
 slots:
@@ -46,11 +55,25 @@ slots:
   current_course_achieved:
     type: bool
 
+
 session_config:
   session_expiration_time: 60  # value in minutes, 0 means infinitely long
   carry_over_slots_to_new_session: true  # set to false to forget slots between sessions
 
 responses:
+  utter_submit:
+  - text: "All done!"
+
+  utter_slots_values:
+    - text: "I am going to run a course search using the following parameters:\n
+             - Course: {current_course_title}"
+
+  utter_finished:
+  - text: Konversation hat geendet.
+
+  utter_ask_current_course_title:
+  - text: Um welchen Kurs handelt es sich?
+
   utter_download_certificate:
   - text: Möchten Sie das Zertifikat herunterladen?
 

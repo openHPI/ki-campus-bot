@@ -26,29 +26,53 @@ stories:
     - intent: get_courses
     - action: action_get_courses
 
-- story: get achievements course-not-set
+- story: Get Achievements happy path with message providing requested value
   steps:
-    - intent: get_achievements
-    - action: action_course_set
-    - slot_was_set:
-      - course-set: false
-    - action: utter_ask_which_course
-    - action: action_get_courses
-    - intent: inform
-      entities:
-      - course-title: "Team Peer Assessments"
-    - action: action_set_current_course
-    - slot_was_set:
-      - current_course_title: "Team Peer Assessments"
-    - checkpoint: get_achievements
+  - user: |
+      Ich möchte meine aktuellen Erfolge sehen
+    intent: get_achievements
+  - action: action_get_courses
+  - action: course_form
+  - active_loop: course_form
+  - user: |
+      Schule macht Daten
+    intent: inform
+  - action: utter_submit
 
-- story: get achievements course-set
-  steps:
-    - intent: get_achievements
-    - action: action_course_set
-    - slot_was_set:
-      - course-set: true
-    - checkpoint: get_achievements
+# - story: get achievements course-not-set
+#   steps:
+#     - intent: get_achievements
+#     - action: action_course_set
+#     - slot_was_set:
+#       - course-set: false
+#     - action: utter_ask_which_course
+#     - action: action_get_courses
+#     - intent: my_course
+#       entities:
+#       - Course: "Schule macht Daten"
+#     - action: action_set_current_course
+#     - slot_was_set:
+#       - current_course_title: "Schule macht Daten"
+#     - checkpoint: get_achievements
+
+# - story: get achievements course-not-set
+#   steps:
+#     - intent: get_achievements
+#     - action: course_form
+#     - active_loop: course_form
+#     - active_loop: null
+#     - slot_was_set:
+#       - current_course_title: "Kurs123"
+#     - action: action_all_slots
+#     - action: utter_finished
+
+# - story: get achievements course-set
+#   steps:
+#     - intent: get_achievements
+#     - action: action_course_set
+#     - slot_was_set:
+#       - course-set: true
+#     - checkpoint: get_achievements
 
 - story: get achievements and ask for certificate and affirm
   steps:
