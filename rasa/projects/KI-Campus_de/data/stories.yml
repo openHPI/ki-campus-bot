@@ -28,16 +28,30 @@ stories:
 
 - story: Get Achievements happy path with message providing requested value
   steps:
-  - user: |
-      Ich möchte meine aktuellen Erfolge sehen
-    intent: get_achievements
+  - intent: get_achievements
   - action: action_get_courses
   - action: course_form
   - active_loop: course_form
-  - user: |
-      Schule macht Daten
-    intent: inform
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
   - action: utter_submit
+  - action: utter_slots_values
+  - action: action_all_slots
+  - checkpoint: get_achievements
+
+# - story: Get Achievements happy path with message providing requested value
+#   steps:
+#   - user: |
+#       Ich möchte meine aktuellen Erfolge sehen
+#     intent: get_achievements
+#   - action: action_get_courses
+#   - action: course_form
+#   - active_loop: course_form
+#   - user: |
+#       Schule macht Daten
+#     intent: inform
+#   - action: utter_submit
 
 # - story: get achievements course-not-set
 #   steps:
@@ -86,16 +100,16 @@ stories:
     - action: utter_anything_else
     - checkpoint: more_information
 
-- story: get achievements and ask for certificate and deny
-  steps:
-    - checkpoint: get_achievements
-    - action: action_get_achievements
-    - slot_was_set:
-      - current_course_achieved: true
-    - action: utter_download_certificate
-    - intent: deny
-    - action: utter_anything_else
-    - checkpoint: more_information
+# - story: get achievements and ask for certificate and deny
+#   steps:
+#     - checkpoint: get_achievements
+#     - action: action_get_achievements
+#     - slot_was_set:
+#       - current_course_achieved: true
+#     - action: utter_download_certificate
+#     - intent: deny
+#     - action: utter_anything_else
+#     - checkpoint: more_information
 
 - story: get achievements and no certificate
   steps:
