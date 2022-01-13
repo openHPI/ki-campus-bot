@@ -1,35 +1,27 @@
-version: '2.0'
-
+version: '3.0'
 intents:
-  - greet
-  - goodbye
-  - thank
-  
+- greet
+- goodbye
+- thank
 actions:
-  - utter_greet
-  - utter_goodbye
-  - utter_you_are_welcome
-  - utter_anything_else
-  - utter_end_of_conversation
-  
+- utter_greet
+- utter_goodbye
+- utter_you_are_welcome
+- utter_anything_else
+- utter_end_of_conversation
 responses:
   utter_end_of_conversation:
   - custom:
-      signal: "End of Conversation"
-
+      signal: End of Conversation
   utter_anything_else:
-  - text: "Is there anything else I can help you with?"
-
+  - text: Is there anything else I can help you with?
   utter_greet:
-    - text: "Hello! What can I help you with?"
-
+  - text: Hello! What can I help you with?
+  - text: Hello! How can I help you?
   utter_goodbye:
-    - text: "Goodbye!"
-  
+  - text: Goodbye!
   utter_you_are_welcome:
-    - text: "You are welcome."
-
+  - text: You are welcome.
 session_config:
-  session_expiration_time: 60  # value in minutes, 0 means infinitely long
-  carry_over_slots_to_new_session: true  # set to false to forget slots between sessions
-  
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

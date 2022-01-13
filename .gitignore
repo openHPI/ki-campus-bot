@@ -3,6 +3,10 @@
 ## exclude models folder ##
 rasa/models/*
 
+## exclude rasa cache
+
+.rasa
+
 **models
 
 ### Linux ###
