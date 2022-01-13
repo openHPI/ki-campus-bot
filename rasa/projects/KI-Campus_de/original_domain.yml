@@ -9,7 +9,8 @@ forms:
     - deny
     - affirm
     required_slots:
-    - current_course_title
+      current_course_title:
+      - type: from_text
 intents:
 - deny
 - affirm
@@ -35,34 +36,19 @@ slots:
   all_courses:
     type: list
     influence_conversation: false
-    mappings:
-    - type: custom
   current_course_title:
     type: text
     influence_conversation: false
-    mappings:
-    - type: from_text
-      conditions:
-      - active_loop: course_form
-        requested_slot: current_course_title
   current_course:
     type: list
     influence_conversation: false
-    mappings:
-    - type: custom
   current_achievements:
     type: list
     influence_conversation: false
-    mappings:
-    - type: custom
   course-set:
     type: bool
-    mappings:
-    - type: custom
   current_course_achieved:
     type: bool
-    mappings:
-    - type: custom
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

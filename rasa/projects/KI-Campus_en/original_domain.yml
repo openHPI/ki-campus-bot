@@ -1,4 +1,4 @@
-version: '"3.0"'
+version: '3.0'
 intents:
 - deny
 - affirm
@@ -28,21 +28,13 @@ slots:
   all_courses:
     type: list
     influence_conversation: false
-    mappings:
-    - type: custom
   current_course:
     type: text
     influence_conversation: false
-    mappings:
-    - type: custom
   course-set:
     type: bool
-    mappings:
-    - type: custom
   current_course_achieved:
     type: bool
-    mappings:
-    - type: custom
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
