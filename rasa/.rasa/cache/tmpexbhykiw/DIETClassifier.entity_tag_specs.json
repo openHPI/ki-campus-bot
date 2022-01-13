@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-country",
+      "2": "I-country",
+      "3": "L-country",
+      "4": "U-country",
+      "5": "B-name",
+      "6": "I-name",
+      "7": "L-name",
+      "8": "U-name",
+      "9": "B-profile-info",
+      "10": "I-profile-info",
+      "11": "L-profile-info",
+      "12": "U-profile-info",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-country": 1,
+      "I-country": 2,
+      "L-country": 3,
+      "U-country": 4,
+      "B-name": 5,
+      "I-name": 6,
+      "L-name": 7,
+      "U-name": 8,
+      "B-profile-info": 9,
+      "I-profile-info": 10,
+      "L-profile-info": 11,
+      "U-profile-info": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]
