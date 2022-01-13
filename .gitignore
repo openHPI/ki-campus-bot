@@ -5,7 +5,7 @@ rasa/models/*
 
 ## exclude rasa cache
 
-# .rasa
+.rasa
 
 **models
 
