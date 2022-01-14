@@ -12,11 +12,20 @@ class CourseSet(Action):
 		return "action_course_set"
 
 	def run(self, dispatcher, tracker, domain):
-		currentCourse = tracker.get_slot('current_course')
+		currentCourse = tracker.get_slot('current_course_title')
 		if currentCourse:
 			return [SlotSet('course-set', True)]
 		else:
 			return [SlotSet('course-set', False)]
+
+class PrintAllSlots(Action):
+	def name(self):
+		return "action_all_slots"
+
+	def run(self, dispatcher, tracker, domain):
+		currentCourse = tracker.get_slot('current_course_title')
+		print(currentCourse)
+		return []
 
 class SetCurrentCourse(Action):
 	def name(self):
@@ -24,7 +33,33 @@ class SetCurrentCourse(Action):
 
 	def run(self, dispatcher, tracker, domain):
 		currentCourse = tracker.latest_message['text']
-		return [SlotSet('current_course', currentCourse)]
+		return [SlotSet('current_course_title', currentCourse)]
+
+class ActionGetCourses(Action):
+	def name(self) -> Text:
+		return "action_get_courses_buttons"
+
+	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+		current_state = tracker.current_state()
+		token = current_state['sender_id']
+		r = requests.get('https://learn.ki-campus.org/bridges/chatbot/my_courses',
+		headers={
+			"content-type": "application/json",
+			"Authorization": 'Bearer {0}'.format(token)
+		})
+		status = r.status_code
+		if status == 200:
+			response = json.loads(r.content)
+			dispatcher.utter_message('You are currently enrolled in these courses:')
+			buttonGroup = []
+			for course in response:
+				title = course['title']
+				buttonGroup.append({"payload": '{0}'.format(title), "title": title})
+			print(buttonGroup)
+			dispatcher.utter_message(buttons = buttonGroup)
+			return [SlotSet('all_courses', response)]
+		else:
+			return []
 
 class ActionGetCourses(Action):
 	def name(self) -> Text:
@@ -33,8 +68,11 @@ class ActionGetCourses(Action):
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 		current_state = tracker.current_state()
 		token = current_state['sender_id']
-		r = requests.get('http://localhost:3000/bridges/chatbot/my_courses', headers={"content-type": "application/json",
-		"Authorization": 'Bearer {0}'.format(token)})
+		r = requests.get('https://learn.ki-campus.org/bridges/chatbot/my_courses',
+		headers={
+			"content-type": "application/json",
+			"Authorization": 'Bearer {0}'.format(token)
+		})
 		status = r.status_code
 		if status == 200:
 			response = json.loads(r.content)
@@ -46,37 +84,55 @@ class ActionGetCourses(Action):
 		else:
 			return []
 
-	class ActionGetAchievements(Action):
-		def name(self) -> Text:
-			return "action_get_achievements"
+class ActionGetAchievements(Action):
+	def name(self) -> Text:
+		return "action_get_achievements"
 
-		def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-			current_state = tracker.current_state()
-			token = current_state['sender_id']
-			currentCourse = tracker.slots['current_course']
-			courseId = 0
-			allCourses = tracker.slots['all_courses']
-			for course in allCourses:
-				if course['title'] == currentCourse:
-					courseId = course['id']
-			r = requests.get('http://localhost:3000/bridges/chatbot/my_courses/{0}/achievements'.format(courseId), headers={"content-type": "application/json",
-			"Authorization": 'Bearer {0}'.format(token)})
+	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+		course_achieved = False
+		currentCourse = []
+		courseId = 0
+		currentAchievements = []
+		current_state = tracker.current_state()
+		token = current_state['sender_id']
+		currentCourseTitle = tracker.slots['current_course_title']
+		print(currentCourseTitle)
+		allCourses = tracker.slots['all_courses']
+		print(allCourses)
+		for course in allCourses:
+			if currentCourseTitle in course['title']:
+				courseId = course['id']
+				currentCourse = course
+				break
+		if courseId != 0:	
+			r = requests.get('https://learn.ki-campus.org/bridges/chatbot/my_courses/{0}/achievements'.format(courseId), 
+			headers={
+				"content-type": "application/json",
+				"Authorization": 'Bearer {0}'.format(token), 
+				"Accept-Language": 'de'
+			})
 			status = r.status_code
 			if status == 200:
 				response = json.loads(r.content)
+				currentAchievements = response
 				for achievement in response:
-					dispatcher.utter_message('{0}: {1}'.format(achievement['name'], achievement['description']))
-					if achievement['achieved']:
-						return[SlotSet('current_course_achieved', True)]
-					else:
-						return[SlotSet('current_course_achieved', False)]
-			else:
-				return []
+					dispatcher.utter_message('{0}'.format(achievement['description']))
+					if achievement['achieved'] and not course_achieved:
+						course_achieved = True
+		else:
+			dispatcher.utter_message('I am very sorry! I could not find the course you are looking for. Please try again by telling me the course title.')
+		return[SlotSet('current_course_achieved', course_achieved), SlotSet('current_course', currentCourse), SlotSet('current_achievements', currentAchievements)]
 
-	class ActionGetCertificate(Action):
-		def name(self) -> Text:
-			return "action_download_certificate"
+class ActionGetCertificate(Action):
+	def name(self) -> Text:
+		return "action_download_certificate"
 
-		def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-			dispatcher.utter_message('Here is your certificate!')
-			return []
+	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+		currentAchievements = tracker.slots['current_achievements']
+		for achievement in currentAchievements:
+			if achievement['achieved']:
+				if achievement['download']['available']:
+					dispatcher.utter_message('You can download your {0} here: {1}!'.format(achievement['name'], achievement['download']['url']))
+				else:
+					dispatcher.utter_message('I am very sorry! The {0} is no longer available and unfortunately can no longer be downloaded!'.format(achievement['name']))
+		return []

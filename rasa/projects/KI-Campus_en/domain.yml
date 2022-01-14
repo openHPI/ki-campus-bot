@@ -1,37 +1,58 @@
-version: '"3.0"'
+version: '3.0'
+forms:
+  course_form:
+    ignored_intents:
+    - faq
+    - greet
+    - goodbye
+    - thank
+    - deny
+    - affirm
+    required_slots:
+    - current_course_title
 intents:
 - deny
 - affirm
-- ask_whatspossible
 - faq
-- get_courses
+- get_course
 - get_achievements
-- inform
+- get_courses
+- inform:
+    use_entities: true
 actions:
-- utter_more_info
-- utter_have_a_nice_day
-- utter_anything_else
-- utter_end_of_conversation
-- utter_use_contact_form
 - action_get_courses
+- action_get_courses_buttons
 - action_get_achievements
 - action_course_set
 - action_set_current_course
 - action_download_certificate
+- action_all_slots
 entities:
-- profile-info
-- course_name
 - certificate_type
+- course_name
+- Course
 - country
-- course-title
 slots:
   all_courses:
     type: list
     influence_conversation: false
     mappings:
     - type: custom
-  current_course:
+  current_course_title:
     type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: course_form
+        requested_slot: current_course_title
+  current_course:
+    type: list
+    influence_conversation: false
+    mappings:
+    - type: custom
+  current_achievements:
+    type: list
     influence_conversation: false
     mappings:
     - type: custom
@@ -47,6 +68,14 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 responses:
+  utter_submit:
+  - text: Done!
+  utter_slots_values:
+  - text: "I am doing a course search with the following paramenters:\n - course: {current_course_title}"
+  utter_finished:
+  - text: Conversation ends.
+  utter_ask_current_course_title:
+  - text: Please select a course title.
   utter_download_certificate:
   - text: Do you want to download the certificate?
   utter_ask_which_course:

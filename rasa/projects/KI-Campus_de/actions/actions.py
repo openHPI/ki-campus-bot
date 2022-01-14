@@ -25,7 +25,6 @@ class PrintAllSlots(Action):
 	def run(self, dispatcher, tracker, domain):
 		currentCourse = tracker.get_slot('current_course_title')
 		print(currentCourse)
-		print("Hello")
 		return []
 
 class SetCurrentCourse(Action):
