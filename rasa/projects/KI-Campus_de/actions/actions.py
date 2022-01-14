@@ -38,6 +38,32 @@ class SetCurrentCourse(Action):
 
 class ActionGetCourses(Action):
 	def name(self) -> Text:
+		return "action_get_courses_buttons"
+
+	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+		current_state = tracker.current_state()
+		token = current_state['sender_id']
+		r = requests.get('https://learn.ki-campus.org/bridges/chatbot/my_courses',
+		headers={
+			"content-type": "application/json",
+			"Authorization": 'Bearer {0}'.format(token)
+		})
+		status = r.status_code
+		if status == 200:
+			response = json.loads(r.content)
+			dispatcher.utter_message('Sie sind derzeit in diesen Kursen eingeschrieben:')
+			buttonGroup = []
+			for course in response:
+				title = course['title']
+				buttonGroup.append({"payload": '{0}'.format(title), "title": title})
+			print(buttonGroup)
+			dispatcher.utter_message(buttons = buttonGroup)
+			return [SlotSet('all_courses', response)]
+		else:
+			return []
+
+class ActionGetCourses(Action):
+	def name(self) -> Text:
 		return "action_get_courses"
 
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:

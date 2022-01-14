@@ -21,6 +21,7 @@ intents:
     use_entities: true
 actions:
 - action_get_courses
+- action_get_courses_buttons
 - action_get_achievements
 - action_course_set
 - action_set_current_course
@@ -68,9 +69,9 @@ session_config:
   carry_over_slots_to_new_session: true
 responses:
   utter_submit:
-  - text: All done!
+  - text: Verstanden!
   utter_slots_values:
-  - text: "I am going to run a course search using the following parameters:\n - Course: {current_course_title}"
+  - text: "Ich mache eine Kurssuchen mit den folgenden Parametern:\n - Kurs: {current_course_title}"
   utter_finished:
   - text: Konversation hat geendet.
   utter_ask_current_course_title:

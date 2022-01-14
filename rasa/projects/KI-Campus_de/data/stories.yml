@@ -26,10 +26,13 @@ stories:
     - intent: get_courses
     - action: action_get_courses
 
-- story: Get Achievements happy path with message providing requested value
+- story: Get achievements course not set
   steps:
   - intent: get_achievements
-  - action: action_get_courses
+  - action: action_course_set
+  - slot_was_set:
+    - course-set: false
+  - action: action_get_courses_buttons
   - action: course_form
   - active_loop: course_form
   - active_loop: null
@@ -40,53 +43,16 @@ stories:
   - action: action_all_slots
   - checkpoint: get_achievements
 
-# - story: Get Achievements happy path with message providing requested value
-#   steps:
-#   - user: |
-#       Ich möchte meine aktuellen Erfolge sehen
-#     intent: get_achievements
-#   - action: action_get_courses
-#   - action: course_form
-#   - active_loop: course_form
-#   - user: |
-#       Schule macht Daten
-#     intent: inform
-#   - action: utter_submit
-
-# - story: get achievements course-not-set
-#   steps:
-#     - intent: get_achievements
-#     - action: action_course_set
-#     - slot_was_set:
-#       - course-set: false
-#     - action: utter_ask_which_course
-#     - action: action_get_courses
-#     - intent: my_course
-#       entities:
-#       - Course: "Schule macht Daten"
-#     - action: action_set_current_course
-#     - slot_was_set:
-#       - current_course_title: "Schule macht Daten"
-#     - checkpoint: get_achievements
-
-# - story: get achievements course-not-set
-#   steps:
-#     - intent: get_achievements
-#     - action: course_form
-#     - active_loop: course_form
-#     - active_loop: null
-#     - slot_was_set:
-#       - current_course_title: "Kurs123"
-#     - action: action_all_slots
-#     - action: utter_finished
-
-# - story: get achievements course-set
-#   steps:
-#     - intent: get_achievements
-#     - action: action_course_set
-#     - slot_was_set:
-#       - course-set: true
-#     - checkpoint: get_achievements
+- story: Get achievements course set
+  steps:
+  - intent: get_achievements
+  - action: action_course_set
+  - slot_was_set:
+    - course-set: true
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: action_all_slots
+  - checkpoint: get_achievements
 
 - story: get achievements and ask for certificate and affirm
   steps:
@@ -100,16 +66,16 @@ stories:
     - action: utter_anything_else
     - checkpoint: more_information
 
-# - story: get achievements and ask for certificate and deny
-#   steps:
-#     - checkpoint: get_achievements
-#     - action: action_get_achievements
-#     - slot_was_set:
-#       - current_course_achieved: true
-#     - action: utter_download_certificate
-#     - intent: deny
-#     - action: utter_anything_else
-#     - checkpoint: more_information
+- story: get achievements and ask for certificate and deny
+  steps:
+    - checkpoint: get_achievements
+    - action: action_get_achievements
+    - slot_was_set:
+      - current_course_achieved: true
+    - action: utter_download_certificate
+    - intent: deny
+    - action: utter_anything_else
+    - checkpoint: more_information
 
 - story: get achievements and no certificate
   steps:
