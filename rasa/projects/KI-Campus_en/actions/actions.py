@@ -24,7 +24,6 @@ class PrintAllSlots(Action):
 
 	def run(self, dispatcher, tracker, domain):
 		currentCourse = tracker.get_slot('current_course_title')
-		print(currentCourse)
 		return []
 
 class SetCurrentCourse(Action):
@@ -50,14 +49,20 @@ class ActionGetCourses(Action):
 		status = r.status_code
 		if status == 200:
 			response = json.loads(r.content)
-			dispatcher.utter_message('You are currently enrolled in these courses:')
-			buttonGroup = []
-			for course in response:
-				title = course['title']
-				buttonGroup.append({"payload": '{0}'.format(title), "title": title})
-			print(buttonGroup)
-			dispatcher.utter_message(buttons = buttonGroup)
-			return [SlotSet('all_courses', response)]
+			if len(response) < 1:
+				dispatcher.utter_message('You are currently not enrolled in any courses.')
+				return [SlotSet('courses_available', False)]
+			else:
+				dispatcher.utter_message('You are currently enrolled in these courses:')
+				buttonGroup = []
+				for course in response:
+					title = course['title']
+					buttonGroup.append({"payload": '{0}'.format(title), "title": title})
+				dispatcher.utter_message(buttons = buttonGroup)
+				return [SlotSet('all_courses', response), SlotSet('courses_available', True)]
+		elif status == 401: # Status-Code 401 None
+			dispatcher.utter_message('You are currently not enrolled in any courses.')
+			return [SlotSet('courses_available', False)]
 		else:
 			return []
 
@@ -76,11 +81,18 @@ class ActionGetCourses(Action):
 		status = r.status_code
 		if status == 200:
 			response = json.loads(r.content)
-			dispatcher.utter_message('You are currently enrolled in these courses:')
-			for course in response:
-				title = course['title']
-				dispatcher.utter_message(title)
-			return [SlotSet('all_courses', response)]
+			if len(response) < 1:
+				dispatcher.utter_message('You are currently not enrolled in any courses.')
+				return [SlotSet('courses_available', False)]
+			else:
+				dispatcher.utter_message('You are currently enrolled in these courses:')
+				for course in response:
+					title = course['title']
+					dispatcher.utter_message(title)
+				return [SlotSet('all_courses', response), SlotSet('courses_available', True)]
+		elif status == 401: # Status-Code 401 None
+			dispatcher.utter_message('You are currently not enrolled in any courses.')
+			return [SlotSet('courses_available', False)]
 		else:
 			return []
 
@@ -89,6 +101,7 @@ class ActionGetAchievements(Action):
 		return "action_get_achievements"
 
 	def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+		print("action get achievements")
 		course_achieved = False
 		currentCourse = []
 		courseId = 0
@@ -96,9 +109,7 @@ class ActionGetAchievements(Action):
 		current_state = tracker.current_state()
 		token = current_state['sender_id']
 		currentCourseTitle = tracker.slots['current_course_title']
-		print(currentCourseTitle)
 		allCourses = tracker.slots['all_courses']
-		print(allCourses)
 		for course in allCourses:
 			if currentCourseTitle in course['title']:
 				courseId = course['id']
@@ -119,9 +130,10 @@ class ActionGetAchievements(Action):
 					dispatcher.utter_message('{0}'.format(achievement['description']))
 					if achievement['achieved'] and not course_achieved:
 						course_achieved = True
+			return[SlotSet('current_course_achieved', course_achieved), SlotSet('current_course', currentCourse), SlotSet('current_achievements', currentAchievements)]
 		else:
 			dispatcher.utter_message('I am very sorry! I could not find the course you are looking for. Please try again by telling me the course title.')
-		return[SlotSet('current_course_achieved', course_achieved), SlotSet('current_course', currentCourse), SlotSet('current_achievements', currentAchievements)]
+			return[SlotSet('current_course_achieved', course_achieved), SlotSet('current_course', currentCourse), SlotSet('current_achievements', currentAchievements)]
 
 class ActionGetCertificate(Action):
 	def name(self) -> Text:

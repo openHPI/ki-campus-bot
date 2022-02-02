@@ -64,22 +64,24 @@ slots:
     type: bool
     mappings:
     - type: custom
+  courses_available:
+    type: bool
+    mappings:
+    - type: custom
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 responses:
   utter_submit:
-  - text: Done!
-  utter_slots_values:
-  - text: "I am doing a course search with the following paramenters:\n - course: {current_course_title}"
+  - text: Thanks for providing me with the course title!
+  utter_starting_search_with_parameters:
+  - text: "I am doing a course search now with the following paramenters:\n - course: {current_course_title}"
   utter_finished:
   - text: Conversation ends.
-  utter_ask_current_course_title:
-  - text: Please select a course title.
   utter_download_certificate:
   - text: Do you want to download the certificate?
   utter_ask_which_course:
-  - text: Please select a course
+  - text: Please select a course for which you want to receive your achievements.
   utter_out_of_scope:
   - text: Sorry, I can't handle that request.
   utter_ask_rephrase:

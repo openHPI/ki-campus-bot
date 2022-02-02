@@ -49,6 +49,7 @@ nlu:
     examples: |
       - Ich möchte meine aktuellen Erfolge sehen
       - Ich möchte meinen aktuellen Fortschritt sehen
+      - Ich möchte meine Leistung haben
       - Wie gut bin ich im Moment
       - Zeig mir alle meine Leistungen
       - Zeige mir meinen Fortschritt
