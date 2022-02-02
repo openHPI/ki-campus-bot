@@ -9,4 +9,10 @@ COPY projects/GreetBot_de/* /app/projects/GreetBot_de/
 
 RUN rasa train --out /app/models
 
+RUN rm /app/config.yml
+RUN rm /app/credentials.yml
+RUN rm /app/endpoints.yml
+RUN rm -rf /app/projects/KI-Campus_de/
+RUN rm -rf /app/projects/GreetBot_de/
+
 ENTRYPOINT ["rasa"]
