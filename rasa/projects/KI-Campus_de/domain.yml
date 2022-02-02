@@ -120,7 +120,9 @@ responses:
   utter_faq/ask_about_recognition:
   - text: Ausgewählte Kurse können mit ECTS-Punkten ausgewiesen und in Abstimmung mit der jeweiligen Hochschule anerkannt bzw. angerechnet werden.  Der KI-Campus kann Ihnen keine generelle Zusage für eine Anerkennung gewähren.  Bitte wende dich mit deinem konkreten Anliegen an deiner Hochschule.
   utter_faq/ask_about_lang_english:
-  - text: Eine englischsprachige Version des KI-Campus befindet sich derzeit in der Umsetzung.  Ausgewählte Lernangebote stehen bereits auf Englisch zur Verfügung.  Das englischsprachige Angebot wird fortlaufend ausgebaut.
+  - text: Ausgewählte Lernangebote stehen auf Englisch zur Verfügung. Das englischsprachige Angebot wird fortlaufend ausgebaut.
+  utter_faq/faq/ask_about_certification:
+  - text: 'Aktuell können auf  dem KI-Campus für alle Online-Kurse auf der Lernplattform Teilnahmebestätigungen und für ausgewählte Online-Kurse auf der Lernplattform auch Leistungsnachweise erworben werden. Für alle Online-Kurse auf der KI-Campus-Lernplattform gilt: Eine KI-Campus-Teilnahmebestätigung erhalten alle, die auf mindestens 50 Prozent der Lerninhalte zugegriffen haben. Einen KI-Campus-Leistungsnachweis erhält, wer in der Summe aller bewerteten Aufgaben des Kurses mindestens 60 Prozent der Gesamtpunktzahl erreicht hat. Weitere Informationen zu den Bescheinigungen des KI-Campus, die schrittweise erprobt und umgesetzt werden, finden Sie in unserem <a href="https://ki-campus.org/blog/leistungsnachweise" _blank>Blogbeitrag</a>.'
   utter_faq/ask_about_course_timelimit:
   - text: Manche Lernangebote können nach eigener Zeiteinteilung absolviert werden, für andere gibt Zeitvorgaben.  Du findest diese Information in der Beschreibung des jeweiligen Lernangebots.
   utter_faq/ask_about_course_costs:

@@ -107,6 +107,19 @@ nlu:
       - Gibt es auch ein englisches Kursangebot?
       - Kann ich den KI Campus auch auf Englisch verwenden?
 
+  - intent: faq/ask_about_certification
+    examples: |
+      - Kann ich eine Bescheinigung erwerben?
+      - Kann ich Zertifikate erwerben?
+      - Können auf dem KI-Campus Bescheinigungen erworben werden? 
+      - Können auf dem KI-Campus Zertifikate erworben werden?
+      - Welche Bescheinigungen kann ich erwerben?
+      - Welche Zertifikate kann ich erwerben?
+      - Bekomme ich nach Kursabschluss eine Bescheinigung?
+      - Bekomme ich nach Kursabschluss ein Zertifikat?
+      - Bekomme ich eine Bescheinigung?
+      - Bekomme ich ein Zertifikat?
+
   - intent: faq/ask_about_course_timelimit
     examples: |
       - Gibt es Zeitvorgaben für den Abschluss von Lernangeboten?
