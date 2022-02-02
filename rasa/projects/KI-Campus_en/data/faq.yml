@@ -97,6 +97,17 @@ nlu:
       - I want to use a different [mail](profile-info)
       - How can I use a different [mail](profile-info)?
       - Where can I set my [email address](profile-info)?
+  - intent: faq/ask_about_certification
+    examples: |
+        - Can I acquire a certificate?
+        - Can I earn certificates?
+        - Can certificates be acquired on the KI Campus? 
+        - Can certificates be earned on the KI campus?
+        - Which certificates can I acquire?
+        - What certificates can I earn?
+        - Will I get a certificate after completing the course?
+        - Do I get a certificate after completing the course?
+        - Do I get a certificate?
   - intent: faq/ask_whatspossible
     examples: |
       - Can you explain me in one sentence what you are doing?
