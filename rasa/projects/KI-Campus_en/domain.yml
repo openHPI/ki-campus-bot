@@ -117,5 +117,7 @@ responses:
   - text: Some learning opportunities can be completed according to your own time schedule, for others there are time limits.  You will find this information in the description of the respective learning offer.
   utter_faq/ask_how_change_info:
   - text: You can change this information in your KI Campus profile.  Please log on to KI Campus and click on your profile picture and select settings.  There you can change your email address, name or profile picture.
+  utter_faq/faq/ask_about_certification:
+  - text: 'Aktuell können auf  dem KI-Campus für alle Online-Kurse auf der Lernplattform Teilnahmebestätigungen und für ausgewählte Online-Kurse auf der Lernplattform auch Leistungsnachweise erworben werden. Für alle Online-Kurse auf der KI-Campus-Lernplattform gilt: Eine KI-Campus-Teilnahmebestätigung erhalten alle, die auf mindestens 50 Prozent der Lerninhalte zugegriffen haben. Einen KI-Campus-Leistungsnachweis erhält, wer in der Summe aller bewerteten Aufgaben des Kurses mindestens 60 Prozent der Gesamtpunktzahl erreicht hat. Weitere Informationen zu den Bescheinigungen des KI-Campus, die schrittweise erprobt und umgesetzt werden, finden Sie in unserem <a href="https://ki-campus.org/blog/leistungsnachweise" _blank>Blogbeitrag</a>.'
   utter_faq/ask_whatspossible:
   - text: I am happy to help you with your technical problems and questions about the courses.  For example, I can explain course structure, types, and time-limits to you as well as answer questions about certificate, resetting the password, or changing your personal information.
