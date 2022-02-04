@@ -32,4 +32,4 @@ importers:
 - name: MultiProjectImporter
 
 imports:
-- projects/KI-Campus_en
+  - ./GreetBot_en

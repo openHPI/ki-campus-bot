@@ -1,9 +1,22 @@
-version: '3.3'
-networks: {rasa-network: {}}
+version: '3'
 services:
-  rasa:
-    image: kicampus_en:1.0
-    ports:
-      - "54321:5005"
-    command:  run -vv -m /app/models/ --enable-api --endpoints /app/endpoints.yml --credentials /app/credentials.yml --cors "*"
-    networks: ['rasa-network']
+    rasa:
+      container_name: "rasa_server_en"
+      user: root
+      build: 
+        context: ./rasa/KI-Campus_en
+      volumes:
+      - "./rasa/KI-Campus_en:/app"
+      ports: 
+        - "5005:5005"
+        # Port Server: 54321:5005
+    action_server:
+      container_name: "action_server_en"
+      build: 
+        context: ./rasa/KI-Campus_en/actions
+      volumes:
+        - ./rasa/KI-Campus_en/actions:/app/actions
+        - ./rasa/KI-Campus_en/data:/app/data
+      ports:
+        - 5055:5055
+        #Port Server: 54321:5055
