@@ -1,6 +1,6 @@
 recipe: default.v1
 
-language: "de"
+language: "en"
 
 pipeline:
   - name: WhitespaceTokenizer
@@ -32,4 +32,4 @@ importers:
 - name: MultiProjectImporter
 
 imports:
-- projects/KI-Campus_de
+  - ./GreetBot_en
