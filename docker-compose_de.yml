@@ -8,8 +8,9 @@ services:
       volumes:
       - "./rasa/KI-Campus_de:/app"
       ports: 
-        - "5005:5005"
-        # Port Server: 12345:5005
+        - "12345:5005"
+        # Port Port: 12345:5005
+        # Local Port: 5005:5005
     action_server:
       container_name: "action_server_de"
       build: 
@@ -18,5 +19,6 @@ services:
         - ./rasa/KI-Campus_de/actions:/app/actions
         - ./rasa/KI-Campus_de/data:/app/data
       ports:
-        - 5055:5055
-        # Port Server: 12345:5055
+        - 12345:5055
+        # Port Port: 12345:5055
+        # Local Port: 5055:5055
