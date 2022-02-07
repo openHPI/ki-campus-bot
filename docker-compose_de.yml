@@ -8,7 +8,7 @@ services:
       volumes:
       - "./rasa/KI-Campus_de:/app"
       ports: 
-        - "5005:5005"
+        - "12345:5005"
         # Server Port: 12345:5005
         # Local Port: 5005:5005
     action_server:
