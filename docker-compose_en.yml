@@ -1,7 +1,7 @@
 version: '3'
 services:
     rasa:
-      container_name: "rasa_server_en"
+      # container_name: "rasa_server_en"
       user: root
       build: 
         context: ./rasa/KI-Campus_en
@@ -12,7 +12,7 @@ services:
         # Server Port: 54321:5005
         # Local Port: 5005:5005
     action_server:
-      container_name: "action_server_en"
+      # container_name: "action_server_en"
       build: 
         context: ./rasa/KI-Campus_en/actions
       volumes:
