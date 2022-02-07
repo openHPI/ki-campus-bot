@@ -121,7 +121,7 @@ class ActionGetAchievements(Action):
 			headers={
 				"content-type": "application/json",
 				"Authorization": 'Bearer {0}'.format(token), 
-				"Accept-Language": 'de'
+				"Accept-Language": "de"
 			})
 			status = r.status_code
 			if status == 200:

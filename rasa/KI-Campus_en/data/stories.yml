@@ -26,7 +26,6 @@ stories:
     - intent: get_courses
     - action: action_get_courses
 
-
 - story: Get achievements course not set courses available
   steps:
   - intent: get_achievements
