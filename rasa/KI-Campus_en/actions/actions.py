@@ -57,7 +57,7 @@ class ActionGetCourses(Action):
 				buttonGroup = []
 				for course in response:
 					title = course['title']
-					buttonGroup.append({"payload": '{0}'.format(title), "title": title})
+					buttonGroup.append({"title": title, "payload": '{0}'.format(title)})
 				dispatcher.utter_message(buttons = buttonGroup)
 				return [SlotSet('all_courses', response), SlotSet('courses_available', True)]
 		elif status == 401: # Status-Code 401 None
@@ -125,8 +125,8 @@ class ActionGetAchievements(Action):
 			status = r.status_code
 			if status == 200:
 				response = json.loads(r.content)
-				currentAchievements = response
-				for achievement in response:
+				currentAchievements = response['certificates']
+				for achievement in currentAchievements:
 					dispatcher.utter_message('{0}'.format(achievement['description']))
 					if achievement['achieved'] and not course_achieved:
 						course_achieved = True
